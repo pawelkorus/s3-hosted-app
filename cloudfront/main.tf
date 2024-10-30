@@ -78,7 +78,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   dynamic "custom_error_response" {
-    for_each = var.spa_deployment.enable ? [1] : []
+    for_each = var.spa-deployment.enable ? [1] : []
 
     content {
       error_code            = 404
