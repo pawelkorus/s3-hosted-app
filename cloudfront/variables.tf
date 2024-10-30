@@ -10,14 +10,7 @@ variable "s3-id" {
     type = string
 }
 
-variable "redirect_not_found" {
-    type        = bool
-    description = "Whether to redirect 404 Not Found errors"
-    default     = false
-}
-
-
-variable "spa_deployment" {
+variable "spa-deployment" {
     type = object({
         enable = bool
     })
