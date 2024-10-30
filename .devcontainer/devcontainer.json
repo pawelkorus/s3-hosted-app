@@ -1,27 +1,27 @@
 {
-    "name": "Terraform",
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
-    "features": {
-      "ghcr.io/devcontainers/features/terraform:1": {
-        "version": "1.6.4",
-        "tflint": "0.50.1"
-      },
-      "ghcr.io/dhoeric/features/terraform-docs:1": {
-        "version": "latest"
-      }
+  "name": "Terraform",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "1.6.4",
+      "tflint": "0.50.1"
     },
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "hashicorp.terraform",
-          "EditorConfig.EditorConfig"
-        ],
-        "settings": {
-          "terraform.languageServer": {
-            "enabled": true,
-            "args": ["serve"]
-          }
+    "ghcr.io/dhoeric/features/terraform-docs:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "EditorConfig.EditorConfig"
+      ],
+      "settings": {
+        "terraform.languageServer": {
+          "enabled": true,
+          "args": ["serve"]
         }
       }
     }
   }
+}
