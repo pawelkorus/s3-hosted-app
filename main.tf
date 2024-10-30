@@ -14,11 +14,12 @@ module "s3-app" {
 }
 
 module "cloudfront" {
-    source     = "./cloudfront"
-    providers  = {
+    source          = "./cloudfront"
+    providers       = {
         aws.cert = aws.cert
     }
-    project     = var.app-name
-    domain      = var.app-domain
-    s3-id       = module.s3-app.bucket-id
+    project         = var.app-name
+    domain          = var.app-domain
+    s3-id           = module.s3-app.bucket-id
+    spa-deployment  = var.spa-deployment
 }
