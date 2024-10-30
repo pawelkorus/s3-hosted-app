@@ -76,6 +76,17 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       restriction_type = "none"
     }
   }
+
+  dynamic "custom_error_response" {
+    for_each = var.spa_deployment.enable ? [1] : []
+
+    content {
+      error_code            = 404
+      response_page_path    = "/"
+      response_code         = 200
+      error_caching_min_ttl = 0
+    }
+  }
 }
 
 data "aws_iam_policy_document" "s3_policy" {
