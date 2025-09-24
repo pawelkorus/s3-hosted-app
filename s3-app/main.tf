@@ -11,6 +11,8 @@ resource "aws_s3_bucket_ownership_controls" "allow_acls" {
 }
 
 resource "aws_s3_bucket_acl" "app" {
+  depends_on = [aws_s3_bucket_ownership_controls.allow_acls]
+
   bucket = aws_s3_bucket.app.id
 }
 
