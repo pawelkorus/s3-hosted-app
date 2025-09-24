@@ -12,7 +12,6 @@ resource "aws_s3_bucket_ownership_controls" "allow_acls" {
 
 resource "aws_s3_bucket_acl" "app" {
   bucket = aws_s3_bucket.app.id
-  acl = "private"
 }
 
 resource "aws_s3_bucket_public_access_block" "app-public-access" {
