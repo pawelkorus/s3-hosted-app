@@ -2,7 +2,17 @@ resource "aws_s3_bucket" "app" {
   bucket = var.bucket-name
 }
 
+resource "aws_s3_bucket_ownership_controls" "allow_acls" {
+  bucket = aws_s3_bucket.app.id
+
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_acl" "app" {
+  depends_on = [aws_s3_bucket_ownership_controls.allow_acls]
+
   bucket = aws_s3_bucket.app.id
   acl = "private"
 }
